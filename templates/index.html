@@ -1,13 +1,30 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Welcome!</title>
-    </head>
-    <body>
-        <h1>Hello world!</h1>
-        <p>We can build a full webpage here</p>
-        <form>
-            <input type="text" name="nickname" placeholder="Enter your nickname"/>
-            <input type="submit" value="Submit"/>
-        </form>
-    </body>
+<head>
+<link rel="stylesheet" type="text/css" href="static/css/style.css?q={{ time }}" />
+    <title></title>
+</head>
+<body>
+    <h2 style="color:white;">Let's Play Blackjack!</h2>
+    <p class = "text">{{props.message}}</p>
+    <p class = "text">{{props.message2}}</p>
+    <p class = "text">{{props.message3}}</p>
+    <form>
+        <input type="radio" id="Hit" name="blackjack" value="Hit" onclick="window.location='/hit'"/>
+        <label class="text" for="Hit">Hit</label><br>
+        <input type="radio" id="Stand" name="blackjack" value="Stand" onclick="window.location='/stand'"/>
+        <label class="text" for="Stand">Stand</label><br> 
+    </form>
+    <button type="reset" onclick="window.location='/'" value="Reset">Reset</button>
+    <div>
+    {% for pcard in props.pcards %}
+    <img class = "pcards" src = "{{pcard}}">
+    {% endfor %}
+    </div>
+    <div>
+    {% for dcard in props.dcards %}
+    <img class = "dcards" src = "{{dcard}}">
+    {% endfor %}
+    </div>
+</body>
 </html>
